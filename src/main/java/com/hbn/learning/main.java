@@ -19,7 +19,7 @@ public class main {
 		// TODO Auto-generated method stub
 		Address add1 = new Address("Delhi", "Delhi" , 110032);
 		
-		Employee emp = new Employee("Piyush","male",100000);
+		Employee emp = new Employee("Punit","male",100000);
 		emp.setAddress(add1);
 		
 //		Configuration cfg = new Configuration().configure("hibernate.cfg.xml");
@@ -27,24 +27,20 @@ public class main {
 		
 		Session session = HibernateConfig.getSessionFactory().openSession();
 		Transaction transaction = session.beginTransaction();
-<<<<<<< Updated upstream
+		
+		add1.setEmployee(emp);
 		session.persist(emp);
+		session.persist(add1);
 		transaction.commit();
-=======
-		
-		
-//		session.persist(emp);
-//		session.persist(add1);
-//		transaction.commit();
-//		
+
 		
 		Employee employee = session.find(Employee.class, 1);
 		System.out.println(employee);
-		
+//		OneToOne Mapping Bidirectional Mapping
 		Address address = session.find(Address.class, 1);
 		System.out.println(address);
->>>>>>> Stashed changes
-
+		System.out.println(address.getEmployee());
+		
 	}
 
 }

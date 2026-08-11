@@ -16,7 +16,7 @@ public class main {
 
 	public static void main(String[] args) {
 		// TODO Auto-generated method stub
-		Employee emp = new Employee("Piyush kumar","male",100000 ,"Hcl");
+		Employee emp = new Employee("Minku","male",50000 ,"Hcl");
 		
 //		Configuration cfg = new Configuration().configure("hibernate.cfg.xml");
 //		SessionFactory sessionFactory = HibernateConfig.getSessionFactory();

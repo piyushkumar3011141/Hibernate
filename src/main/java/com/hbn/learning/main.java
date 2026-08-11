@@ -23,6 +23,18 @@ public class main {
 		
 		Session session = HibernateConfig.getSessionFactory().openSession();
 		Transaction transaction = session.beginTransaction();
+		
+		Query<Employee> query = session.createNamedQuery("Employee.findEmployeeById", Employee.class);
+		query.setParameter("id", "5");
+		List<Employee> employees = query.getResultList();
+		System.out.println(employees);
+
+		System.out.println();
+
+		Query<Employee> q = session.createNamedQuery("Employee.findByGender", Employee.class);
+		q.setParameter("gender", "male");
+		System.out.println(q.list());
+		
 		session.persist(emp);
 		transaction.commit();
 

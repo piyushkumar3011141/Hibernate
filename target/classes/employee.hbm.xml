@@ -1,17 +1,17 @@
-<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN" "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<!--<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN" "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">-->
 
-<hibernate-mapping>
+<!--<hibernate-mapping>-->
 
 
-	<class name="com.hbn.learning.entity.Employee" table="empp" >
+<!--	<class name="com.hbn.learning.entity.Employee" table="empp" >-->
 
-		<id name="id" >
-			<generator class="identity"></generator>		
-		</id>
-		<property name="name" column="empName"/>
-		<property name="gender" />
-		<property name="salary" />
+<!--		<id name="id" >-->
+<!--			<generator class="identity"></generator>		-->
+<!--		</id>-->
+<!--		<property name="name" column="empName"/>-->
+<!--		<property name="gender" />-->
+<!--		<property name="salary" />-->
 
-	</class>
+<!--	</class>-->
 
-</hibernate-mapping>
+<!--</hibernate-mapping>-->

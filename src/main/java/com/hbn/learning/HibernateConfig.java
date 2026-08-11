@@ -28,10 +28,10 @@ public class HibernateConfig {
 		
 		StandardServiceRegistry ssr = new StandardServiceRegistryBuilder().applySettings(properties).build();
 		
-		Metadata meta = new MetadataSources(ssr).addAnnotatedClass(com.hbn.learning.entity.Employee.class).getMetadataBuilder().build();
+		Metadata meta = new MetadataSources(ssr).addAnnotatedClasses(com.hbn.learning.entity.Employee.class,com.hbn.learning.entity.Address.class).getMetadataBuilder().build();
 		
 		return meta.buildSessionFactory();
-		
+		 
 	}
 
 }

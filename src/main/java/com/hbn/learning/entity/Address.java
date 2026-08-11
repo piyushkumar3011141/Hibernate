@@ -4,10 +4,6 @@ import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
-<<<<<<< Updated upstream
-=======
-import jakarta.persistence.OneToOne;
->>>>>>> Stashed changes
 import jakarta.persistence.Transient;
 import lombok.AllArgsConstructor;
 import lombok.Data;
@@ -16,31 +12,25 @@ import lombok.NoArgsConstructor;
 @Data
 @AllArgsConstructor
 @NoArgsConstructor
-<<<<<<< Updated upstream
-=======
 
 
->>>>>>> Stashed changes
-@Entity(name = "abc")
-public class Employee {
+@Entity(name = "hbn")
+public class Address {
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private int id;
 	
-	@OneToOne
-	private Address address;
-	
-	
-	private String name , gender;
-	private int salary;
+	private String city , state;
+	private int pincode;
 	
 
-	public Employee(String name , String gender , int salary) {
-		this.name = name;
-		this.gender = gender;
-		this.salary = salary;
+	public Address(String city , String state , int pincode ) {
+		this.city = city;
+		this.state = state;
+		this.pincode = pincode;
 	}
 	
+
 	
 }
 

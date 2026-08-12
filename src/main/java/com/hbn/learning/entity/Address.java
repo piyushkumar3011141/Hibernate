@@ -8,6 +8,7 @@ import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
 import jakarta.persistence.ManyToMany;
+import jakarta.persistence.ManyToOne;
 import jakarta.persistence.OneToOne;
 import jakarta.persistence.Transient;
 import lombok.AllArgsConstructor;
@@ -25,9 +26,8 @@ public class Address {
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private int id;
 	
-	@ManyToMany(mappedBy = "addresses")
-	private Set<Employee> employees = new HashSet<>();
-	
+	@ManyToOne
+	private Employee employee;
 	
 	private String city , state;
 	private int pincode;
@@ -37,6 +37,10 @@ public class Address {
 		this.city = city;
 		this.state = state;
 		this.pincode = pincode;
+	}
+	@Override
+	public String toString() {
+		return "Address [id=" + id + ", city=" + city + ", state=" + state + ", pinCode=" + pincode + "]";
 	}
 	
 

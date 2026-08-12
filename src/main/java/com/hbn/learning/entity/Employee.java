@@ -30,14 +30,9 @@ public class Employee {
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private int id;
 	
-	@OneToMany(cascade = CascadeType.ALL)
+	@OneToMany(cascade = CascadeType.ALL , mappedBy = "employee")
 	private List<Address> address;
-	
-	// Many-to-Many relationship with Address
-	@ManyToMany(cascade = CascadeType.ALL)
-	@JoinTable(name = "employee_address")
-	private Set<Address> addresses = new HashSet<>();
-	
+
 	
 	private String name , gender;
 	private int salary;
@@ -48,9 +43,9 @@ public class Employee {
 		this.gender = gender;
 		this.salary = salary;
 	}
-	public void addAddress(Address address) {
-		this.addresses.add(address);
-		address.getEmployees().add(this); // ensure bi-directional mapping
+	@Override
+	public String toString() {
+		return "Employee [id=" + id + ", name=" + name + ", gender=" + gender + ", salary=" + salary  + "]";
 	}
 	
 	

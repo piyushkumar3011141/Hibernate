@@ -17,36 +17,39 @@ public class main {
 
 	public static void main(String[] args) {
 		// TODO Auto-generated method stub
-		// Create configuration and build session factory
-        Configuration cfg = new Configuration().configure();
-        SessionFactory factory = cfg.buildSessionFactory();
+		Address add1 = new Address("delhi", "delhi" , 202984);
+		Address add2 = new Address("Ghaziabad", "UP" , 202984);
+		Address add3 = new Address("Nodia", "UP" , 202984);
+		Address add4 = new Address("Nodia74", "UP" , 209423);
+		
+		List<Address> listOfAdd = new ArrayList<>();
+		listOfAdd.add(add1);
+		listOfAdd.add(add2);
+		listOfAdd.add(add3);
+		listOfAdd.add(add4);
+		
+		
+		Employee emp = new Employee("Rinku","male",100000);
+		emp.setAddress(listOfAdd);
+		
+		
+//		Configuration cfg = new Configuration().configure("hibernate.cfg.xml");
+//		SessionFactory sessionFactory = HibernateConfig.getSessionFactory();
+		
+		Session session = HibernateConfig.getSessionFactory().openSession();
+		Transaction transaction = session.beginTransaction();
+		
+		session.persist(emp);
+		transaction.commit();
 
-        // Create session
-        Session session = factory.openSession();
-        session.beginTransaction();
-
-        // Create addresses
-        Address address1 = new Address("New York","USA",002112);
-        Address address2 = new Address("San Francisco","USA",002112);
-
-        // Create employees
-        Employee emp1 = new Employee("John Doe","USA",002112);
-        Employee emp2 = new Employee("Jane Smith","USA",002112);
-
-        // Establish many-to-many relationships
-        emp1.addAddress(address1);
-        emp1.addAddress(address2);
-
-        emp2.addAddress(address1);  // shared address
-
-        // Save employees (cascades addresses)
-        session.persist(emp1);
-        session.persist(emp2);
-
-        session.getTransaction().commit();
-        session.close();
-
-        factory.close();
+		
+		Employee employee = session.find(Employee.class, 1);
+		System.out.println(employee);
+		System.out.println(employee.getAddress());
+		
+		Address address = session.find(Address.class, 3);
+		System.out.println(address);
+		System.out.println(address.getEmployee());
 		
 		
 	}

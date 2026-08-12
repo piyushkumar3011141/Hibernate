@@ -17,10 +17,10 @@ public class main {
 
 	public static void main(String[] args) {
 		// TODO Auto-generated method stub
-		Address add1 = new Address("Delhi", "Delhi" , 202984);
+		Address add1 = new Address("Uk", "Uk" , 202984);
 		Address add2 = new Address("Ghaziabad", "UP" , 202984);
 		Address add3 = new Address("Nodia", "UP" , 202984);
-		Address add4 = new Address("Gurgram", "HR" , 202984);
+		Address add4 = new Address("Nodia74", "UP" , 209423);
 		
 		List<Address> listOfAdd = new ArrayList<>();
 		listOfAdd.add(add1);

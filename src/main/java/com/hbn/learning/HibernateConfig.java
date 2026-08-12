@@ -21,7 +21,7 @@ public class HibernateConfig {
 		properties.put("jakarta.persistence.jdbc.url","jdbc:mysql://localhost:3306/java13");
 		properties.put(Environment.JAKARTA_JDBC_USER,"root");
 		properties.put(Environment.JAKARTA_JDBC_PASSWORD,"root");
-		properties.put(Environment.HBM2DDL_AUTO,"update");
+		properties.put(Environment.HBM2DDL_AUTO,"create");
 		properties.put(Environment.SHOW_SQL,"true");
 		properties.put(Environment.FORMAT_SQL,"true");
 		

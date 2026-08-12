@@ -1,12 +1,16 @@
 package com.hbn.learning.entity;
 
+import java.util.HashSet;
 import java.util.List;
+import java.util.Set;
 
 import jakarta.persistence.CascadeType;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
+import jakarta.persistence.JoinTable;
+import jakarta.persistence.ManyToMany;
 import jakarta.persistence.OneToMany;
 import jakarta.persistence.OneToOne;
 
@@ -29,6 +33,11 @@ public class Employee {
 	@OneToMany(cascade = CascadeType.ALL)
 	private List<Address> address;
 	
+	// Many-to-Many relationship with Address
+	@ManyToMany(cascade = CascadeType.ALL)
+	@JoinTable(name = "employee_address")
+	private Set<Address> addresses = new HashSet<>();
+	
 	
 	private String name , gender;
 	private int salary;
@@ -38,6 +47,10 @@ public class Employee {
 		this.name = name;
 		this.gender = gender;
 		this.salary = salary;
+	}
+	public void addAddress(Address address) {
+		this.addresses.add(address);
+		address.getEmployees().add(this); // ensure bi-directional mapping
 	}
 	
 	

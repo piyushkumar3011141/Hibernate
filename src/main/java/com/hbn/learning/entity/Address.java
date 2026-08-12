@@ -21,9 +21,7 @@ public class Address {
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private int id;
 	
-//	OneToOne Mapping Bidirectional Mapping
-	@OneToOne(mappedBy = "address")
-	private Employee employee;
+	
 	
 	private String city , state;
 	private int pincode;
